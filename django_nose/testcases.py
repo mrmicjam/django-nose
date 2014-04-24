@@ -104,7 +104,7 @@ class FastFixtureTestCase(test.TransactionTestCase):
                         cursor.execute('SET FOREIGN_KEY_CHECKS=1')
                     else:
                         for table in tables:
-                            cursor.execute('DELETE FROM %s' % table)
+                            cursor.execute('DELETE FROM "%s"' % table)
 
                 transaction.commit(using=db)
                 # cursor.close()  # Should be unnecessary, since we committed
